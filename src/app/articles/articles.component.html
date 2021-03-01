@@ -1,0 +1,33 @@
+<div *ngIf="articles && articles.length">
+  <ul class="list-unstyled" *ngFor="let item of articles">
+      <li class="media">
+          <img src="{{ item.image }}" class="mr-3 h-25 w-25" (click)="onClickImage(item)">
+          <div class="media-body">
+            <a href="#" (click)="onClickTitle(item)">
+              <h5 class="mt-0 mb-1">
+                {{ item.title }}
+              </h5>
+            </a>
+            {{ item.content }}
+          </div>
+      </li>
+  </ul>
+  
+  <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li class="page-item" [ngClass]="{'active': conditions.page === 1}">
+          <a class="page-link" href="#" (click)="onClickPagination(1)">1</a>
+        </li>
+        <li class="page-item" [ngClass]="{'active': conditions.page === 2}">
+          <a class="page-link" href="#" (click)="onClickPagination(2)">2</a>
+        </li>
+        <li class="page-item" [ngClass]="{'active': conditions.page === 3}">
+          <a class="page-link" href="#" (click)="onClickPagination(3)">3</a>
+        </li>
+      </ul>
+  </nav>
+</div>
+
+<div class="alert alert-danger" role="alert" *ngIf="errorMessage || (articles && !articles.length)">
+  {{ errorMessage || 'Not found' }}
+</div>

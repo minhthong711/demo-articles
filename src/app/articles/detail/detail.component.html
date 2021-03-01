@@ -1,0 +1,11 @@
+<li class="media" *ngIf="item">
+    <img src="{{ item.image }}" class="mr-3" alt="...">
+    <div class="media-body">
+        <h5 class="mt-0 mb-1">{{ item.title }}</h5>
+        {{ item.content }}
+    </div>
+</li>
+
+<div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+    {{ errorMessage }}
+</div>
